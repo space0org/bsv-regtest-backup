@@ -1,0 +1,14 @@
+services:
+  node4:
+    platform: linux/arm64
+    container_name: node4
+    image: bitcoinsv/bitcoin-sv:1.0.2
+    ports:
+      - "18701:18333"
+      - "18702:18332"
+    volumes:
+      - ./config/bitcoin.conf:/data/bitcoin.conf
+      - node4-data:/data
+
+volumes:
+  node4-data:
