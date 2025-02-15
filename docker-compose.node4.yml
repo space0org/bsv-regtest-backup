@@ -2,7 +2,7 @@ services:
   node4:
     platform: linux/arm64
     container_name: node4
-    image: bitcoinsv/bitcoin-sv:0.2.1
+    image: bitcoinsv/bitcoin-sv:1.0.0
     ports:
       - "18701:18333"
       - "18702:18332"
