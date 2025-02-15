@@ -1,0 +1,16 @@
+services:
+  node4:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: node4
+    platform: linux/arm64
+    ports:
+      - "18701:18333"
+      - "18702:18332"
+    volumes:
+      - ../config/bitcoin.conf:/data/bitcoin.conf
+      - node4-data:/data
+
+volumes:
+  node4-data:
