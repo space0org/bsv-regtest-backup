@@ -7,12 +7,6 @@ services:
       - "18332:18332"
       - "18333:18333"
       - "28332:28332"
-    expose: 
-      - "18332"
-      - "18333"
-      - "28332"
-    healthcheck:
-      test: [ "CMD", "/entrypoint.sh", "bitcoin-cli", "getinfo" ]
     volumes:
       - ./config/bitcoin.conf:/data/bitcoin.conf
       - node1-data:/data
@@ -23,34 +17,21 @@ services:
     ports:
       - "18501:18333"
       - "18502:18332"
-    expose: 
-      - "18332"
-      - "18333"
-    healthcheck:
-      test: [ "CMD", "/entrypoint.sh", "bitcoin-cli", "getinfo" ]
     volumes:
       - ./config/bitcoin.conf:/data/bitcoin.conf
       - node2-data:/data
-    
+
   node3:
     container_name: node3
     image: bitcoinsv/bitcoin-sv:1.0.8.beta
     ports:
       - "18601:18333"
       - "18602:18332"
-    expose: 
-      - "18332"
-      - "18333"
-    healthcheck:
-      test: [ "CMD", "/entrypoint.sh", "bitcoin-cli", "getinfo" ]
     volumes:
       - ./config/bitcoin.conf:/data/bitcoin.conf
       - node3-data:/data
 
 volumes:
   node1-data:
-    external: false
   node2-data:
-    external: false
   node3-data:
-    external: false
